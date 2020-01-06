@@ -1,0 +1,11 @@
+- Material ui or bootstrap.
+- Count of pages:
+    - index
+    - sign in
+    - sign up
+    - user profile
+    - kind of products
+    - products list
+    - basket
+- adaptive interface
+- update readme
