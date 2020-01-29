@@ -1,13 +1,13 @@
 import React, { Component, Fragment } from 'react';
 
-class Basket extends Component{
+class Index extends Component{
 
 
     render(){
         return (
-            <Fragment>
-
-            </Fragment>
+        <Fragment>
+            
+        </Fragment>
         );
-    }
+}
 }
