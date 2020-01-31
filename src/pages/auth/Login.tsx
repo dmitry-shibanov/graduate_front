@@ -26,7 +26,6 @@ export class Login extends Component {
                                 <FormControl type="txt" placeholder="Email" className="m-sm-2" />
                                 <FormControl type="txt" placeholder="Login" className="m-sm-2" />
                                 <FormControl type="txt" placeholder="Password" className="m-sm-2" />
-                                <FormControl type="txt" placeholder="Confirm Password" className="m-sm-2" />
                                 <Button variant="outline-info" className="ml-auto">Search</Button>
                             </Form>
                     </Card.Body>

@@ -1,49 +1,18 @@
 import React, { Fragment } from 'react';
 import NavBar from "./components/navbar/navbar_header";
-import Footer from "./components/footer/footer";
-import IndexPage from "./pages/index";
-import logo from './logo.svg';
 import "bootstrap";
 import './App.css';
-import { BrowserRouter as Router } from "react-router-dom"
-import { Route, Switch } from 'react-router';
-import SignUp from './pages/auth/SignUp';
-import Login from './pages/auth/Login';
-
+import { BrowserRouter as Router, withRouter } from "react-router-dom"
+import IndexPage from "./pages/index";
 const App: React.FC = () => {
 
-  function About() {
-    return <h2>About</h2>;
-  }
-  
-  function Users() {
-    return <h2>Users</h2>;
-  }
 
   return (
-    <Router >
-    <Fragment>
-      <NavBar />
-      <Switch>
-        <Route path="/about">
-          <About />
-        </Route>
-        <Route path="/users">
-          <Users />
-        </Route>
-        <Route path="/signup">
-          <SignUp />
-        </Route>
-        <Route path="/login">
-          <Login />
-        </Route>
-        <Route path="/">
-          <IndexPage />
-        </Route>
-      </Switch>
-      {/* <Footer /> */}
-    </Fragment>
-    </Router>
+      <Fragment>
+        <NavBar />
+          <IndexPage/>
+        {/* <Footer /> */}
+      </Fragment>
   );
   // return (
   //   <div className="App">
@@ -65,4 +34,4 @@ const App: React.FC = () => {
   // );
 }
 
-export default App;
+export default withRouter(App);

@@ -1,8 +1,26 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
+import { Card, Form, FormControl, Button } from 'react-bootstrap';
 
 
-class SignUp extends Component{
-    
+class SignUp extends Component {
+    render() {
+        return (
+            <Fragment>
+                <Card className="d-flex flex-wrap my-auto mx-auto col-6" style={{ height: "50%" }}>
+                    <Card.Header as="h5">Регистарция</Card.Header>
+                    <Card.Body>
+                        <Form inlist>
+                            <FormControl type="email" placeholder="Email" className="m-sm-2" />
+                            <FormControl type="txt" placeholder="Login" className="m-sm-2" />
+                            <FormControl type="password" placeholder="Password" className="m-sm-2" />
+                            <FormControl type="password" placeholder="Confirm Password" className="m-sm-2" />
+                            <Button variant="outline-info" className="ml-auto">Search</Button>
+                        </Form>
+                    </Card.Body>
+                </Card>
+            </Fragment>
+        );
+    }
 }
 
 export default SignUp;
