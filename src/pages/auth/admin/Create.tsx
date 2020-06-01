@@ -5,7 +5,13 @@ class CreateStuff extends Component{
     render(){
         return(
             <Fragment>
-
+                <form>
+                    <input/>
+                    <input/>
+                    <input/>
+                    <input/>
+                    <button/>
+                </form>
             </Fragment>
         );
     }

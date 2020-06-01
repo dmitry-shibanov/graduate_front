@@ -2,30 +2,18 @@ import axios from 'axios';
 
 
 const instanceAxios = axios.create({
-    baseURL: 'https://jsonplaceholder.typicode.com',
+    baseURL: 'http://localhost:3100',
     headers: {
-        'Content-Typy':'application/json',
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Methods":"PUT, POST, DELETE, GET"
+        'Content-Type':'application/json',
+        // "Access-Control-Allow-Methods":"PUT, POST, DELETE, GET",
+        // "Access-Control-Allow-Headers": "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With"
     }
 })
-//axios.defaults.headers.common = {'Authorization': `Bearer ${token}`}
+// axios.defaults.headers.common = {'Authorization': `Bearer ${token}`}
 //delete axios.defaults.headers.common["Authorization"];
 // var config = {
 //     headers: {'Authorization': "bearer " + token}
 // };
 
-// var bodyParameters = {
-//    key: "value"
-// }
 
-// Axios.post( 
-//   'http://localhost:8000/api/v1/get_token_payloads',
-//   bodyParameters,
-//   config
-// ).then((response) => {
-//   console.log(response)
-// }).catch((error) => {
-//   console.log(error)
-// });
 export default instanceAxios;
