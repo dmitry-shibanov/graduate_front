@@ -9,5 +9,8 @@ jobs:
     - name: Checkout
       uses: actions/checkout@master
 
+    - name: Install modules
+      run: npm install
+      
     - name: Test react
       run: npm test
