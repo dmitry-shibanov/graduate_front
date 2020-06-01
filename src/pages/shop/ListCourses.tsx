@@ -3,7 +3,7 @@ import axios from "../../axios";
 import IProduct from '../../models/IProduct';
 
 
-class ListProduct extends Component<{}, IProduct > {
+class ListCourses extends Component<{}, IProduct > {
 
 
 
@@ -24,3 +24,5 @@ class ListProduct extends Component<{}, IProduct > {
         );
     }
 }
+
+export default ListCourses;
