@@ -1,5 +1,5 @@
-name: Test Project
-on: [push]
+name: Test Project react
+on: [push, pull_request]
 jobs:
   Tests:
     strategy:
@@ -11,6 +11,14 @@ jobs:
 
     - name: Install modules
       run: npm install
+
+    - name: Check prettier
+      run: npm run prettier:ci
+
+    - name: Check format
+      if: ${{ always() }}
+      run: npm run format
       
     - name: Test react
+      if: ${{ always() }}
       run: npm test
