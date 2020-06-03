@@ -23,7 +23,7 @@ jobs:
 
     - name: Check format
       if: ${{ always() }}
-      run: npm run format
+      run: npm run lint
       
     - name: Test react
       if: ${{ always() }}
