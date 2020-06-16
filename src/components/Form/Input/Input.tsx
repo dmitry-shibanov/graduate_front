@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { ChangeEvent, SFC } from 'react';
 
 import './Input.css';
+import IInput from '../../../models/props/IInput';
 
-const input = (props: any) => (
+const input: SFC<IInput> = (props) => (
   <div className="input">
     {props.label && <label htmlFor={props.id}>{props.label}</label>}
     {props.control === 'input' && (

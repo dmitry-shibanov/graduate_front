@@ -90,7 +90,7 @@ class Signup extends Component<ISignup, any> {
         confirmPassword: this.state.signupForm["confirmPassword"].value,
         login: this.state.signupForm["name"].value
     },{method:"POST"});
-    
+
     if (result.status === 201){
         this.props.history.push("/auth/login");
     }
@@ -100,9 +100,7 @@ class Signup extends Component<ISignup, any> {
   render() {
     return (
       <Auth>
-        <form onSubmit={this.onSignUp}>
-        {/* // {(e: React.FormEvent<HTMLFormElement>) => this.onSignUp} */}
-        {/* this.props.onSignup(e, this.state) */}
+        <form onSubmit={(e) => this.props.onSignup(e,this.state)}>
           <Input
             id="email"
             label="Your E-Mail"

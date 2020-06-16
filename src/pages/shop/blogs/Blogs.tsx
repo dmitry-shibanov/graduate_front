@@ -5,35 +5,23 @@ import Loader from "../../../components/loader/Loader";
 import axios from "../../../axios";
 import BlogCard from "../../../components/Items/ThemeCourse/ItemProduct";
 class Blogs extends Component<any, any> {
-  blogs_list = [];
+  blogs_list:any = [];
   constructor(props: any) {
     super(props);
     this.state = {
+      isEditing: false,
+      posts: [],
+      totalPosts: 0,
+      editPost: null,
+      status: '',
+      postPage: 1,
       blogsLoading: true,
+      editLoading: false
     };
   }
 
   componentDidMount() {
-    let params = {};
-
-    axios
-      .get("/posts", params)
-      .then((response) => {
-        console.log(response);
-        let data = response.data.slice(0, 15);
-        this.blogs_list = data.map((item: any) => {
-          return (
-            <BlogCard id={12} title={"some title"} price={123} image={""} />
-          );
-        });
-        this.setState({
-          blogsLoading: false,
-        });
-        console.log(this.state);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    
   }
 
   newBlogHandler = () => {

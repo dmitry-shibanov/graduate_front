@@ -5,6 +5,7 @@ import { required, length, email } from '../../utils/validators';
 import ILogin from "../../models/props/ILogin";
 import Auth from './Auth';
 import axios from "../../axios";
+import { Link } from 'react-router-dom';
 
 class Login extends Component<ILogin, any> {
   state = {
@@ -25,7 +26,7 @@ class Login extends Component<ILogin, any> {
     }
   };
 
-  inputChangeHandler = (input: any, value: any) => {
+  inputChangeHandler = (input: string, value: string) => {
     this.setState((prevState: any) => {
       let isValid = true;
       for (const validator of prevState.loginForm[input].validators) {
@@ -80,7 +81,10 @@ class Login extends Component<ILogin, any> {
     return (
       <Auth>
         <form
-          onSubmit={this.onLogin}
+          onSubmit={(e) => this.props.onLogin(e,{
+            email: this.state.loginForm["email"].value,
+            password: this.state.loginForm["password"].value
+          })}
         >
           <Input
             id="email"
@@ -104,6 +108,7 @@ class Login extends Component<ILogin, any> {
             valid={this.state.loginForm['password'].valid}
             touched={this.state.loginForm['password'].touched}
           />
+          <Link to="/auth/reset">Forgot password?</Link>
           <Button design="raised" type="submit" loading={this.props.loading}>
             Login
           </Button>

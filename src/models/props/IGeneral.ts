@@ -2,9 +2,10 @@ import { FormEvent } from "react";
 import { RouteComponentProps } from "react-router-dom";
 
 interface IGeneral extends RouteComponentProps<any> {
-    loginHandler: Function;
+    loginHandler: (e: FormEvent<HTMLFormElement>, state: any) => void;
     signupHandler: (e: FormEvent<HTMLFormElement>, state: any) => void;
-    logout: Function;
+    logout: any;
+    isAuth: boolean;
     authLoading: boolean;
 }
 

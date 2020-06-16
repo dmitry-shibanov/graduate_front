@@ -44,19 +44,21 @@ componentDidMount() {
       <Fragment>
 
       <NavBar isAuth = { this.state.isAuth } logout = { this.logoutHandler } />
-        <IndexPage history={this.props.history} match={this.props.match} location={this.props.location} loginHandler={this.loginHandler} logout={this.logoutHandler} signupHandler={this.signupHandler} authLoading= {this.state.authLoading}/>
+        <IndexPage history={this.props.history} match={this.props.match} location={this.props.location} loginHandler={this.loginHandler} logout={this.logoutHandler} signupHandler={this.signupHandler} authLoading= {this.state.authLoading} isAuth = {this.state.isAuth} />
         </Fragment>
     );
   }
 
   signupHandler = (event: React.FormEvent<HTMLFormElement>, authData: any) => {
+    
   event.preventDefault();
   this.setState({ authLoading: true });
-  axios.put('/signup', JSON.stringify({
-    email: authData.signupForm.email.value,
-    password: authData.signupForm.password.value,
-    login: authData.signupForm.name.value
-  })).then(res => {
+  axios.post("/signup", {
+    email: authData.signupForm["email"].value,
+    password: authData.signupForm["password"].value,
+    confirmPassword: authData.signupForm["confirmPassword"].value,
+    login: authData.signupForm["name"].value
+},{method:"POST"}).then(res => {
     if (res.status === 422) {
       throw new Error(
         "Validation failed. Make sure the email address isn't used yet!"
@@ -71,7 +73,7 @@ componentDidMount() {
     .then(resData => {
       console.log(resData);
       this.setState({ isAuth: false, authLoading: false });
-      this.props.history.replace('/');
+      this.props.history.replace('/auth/login');
     })
     .catch(err => {
       console.log(err);
@@ -86,11 +88,9 @@ componentDidMount() {
 loginHandler = (event: React.FormEvent<HTMLFormElement>, authData: any) => {
   event.preventDefault();
   this.setState({ authLoading: true });
-  // email: authData.email,
-  // password: authData.password
-  axios.post('login', {
-    email: authData.signupForm.email.value,
-    password: authData.signupForm.password.value
+  axios.post('/login', {
+    email: authData.email,
+    password: authData.password
   }).then(response => {
     console.log(response);
     if (response.status === 422) {

@@ -2,11 +2,9 @@ import React, { Fragment } from "react";
 import { NavLink, Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faShoppingCart, faUserCircle, faBars } from '@fortawesome/free-solid-svg-icons'
-
 import IAuth from "../../models/props/IAuth";
 
 export default (props:IAuth) => {
-//<Image src={Logo} style={{height: "5%", width: "5%"}}/>
     return (
         <Fragment>
                 <div className="sticky-top" style={{ backgroundColor: "white", boxShadow: "0 2px 8px black", width: "100%" }}>
@@ -38,7 +36,7 @@ export default (props:IAuth) => {
                                 {props.isAuth && <NavLink className="btn btn-link" to="/profile"><FontAwesomeIcon icon={faUserCircle} style={{ color: "blue" }} /></NavLink>}
                                 {props.isAuth || <NavLink to="/auth/signup" className="btn btn-outline-primary nav-link mx-2">Регистрация</NavLink>}
                                 {props.isAuth || <NavLink to="/auth/login" className="btn btn-outline-primary nav-link">Войти</NavLink>}
-                                {/* {props.isAuth && <NavLink className="btn btn-outline-primary nav-link mx-2" onClick={props.logout}>Выйти</NavLink>} */}
+                                {props.isAuth && <NavLink to="/" className="btn btn-outline-primary nav-link mx-2" onClick={props.logout}>Выйти</NavLink>}
                             </ul>
                         </div>
 

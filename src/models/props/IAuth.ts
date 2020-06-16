@@ -1,6 +1,6 @@
 interface IAuth {
     isAuth: boolean;
-    logout: Function;
+    logout: any;
 }
 
 export default IAuth;

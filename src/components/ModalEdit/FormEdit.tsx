@@ -1,5 +1,4 @@
 import React, { Component, Fragment } from 'react';
-
 import Backdrop from '../Backdrop/Backdrop';
 import Modal from '../Modal/Modal';
 import Input from '../Form/Input/Input';
@@ -137,6 +136,7 @@ class FeedEdit extends Component<IEditForm, any> {
   render() {
       console.log("came to modal")
       console.log(this.props.editing)
+      console.log(`this.props.loading ${this.props.loading}`)
     return this.props.editing ? (
       <Fragment>
         <Backdrop onClick={this.cancelPostChangeHandler} />
@@ -177,7 +177,7 @@ class FeedEdit extends Component<IEditForm, any> {
               id="content"
               label="Content"
               control="textarea"
-              rows="5"
+              rows={5}
               onChange={this.postInputChangeHandler}
               onBlur={this.inputBlurHandler.bind(this, 'content')}
               valid={this.state.postForm['content'].valid}
