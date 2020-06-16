@@ -14,7 +14,9 @@ import Basket from "./auth/lk/Basket/Basket";
 import ResetPassword from "./auth/resets/ResetPassword";
 import ConfirmPassword from "./auth/ConfirmPassword";
 import ClassRoom from "./videos/lessons/ClassRoom";
-import NotFound from "./NotFound";
+import NotFound from "./error/404/NotFound";
+import ServerError from "./error/500/ServerError";
+import Forbidden from "./error/403/Forbidden";
 //images should be with fade in and fade out animations
 
 const indexPage: FunctionComponent<IGeneral> = ({
@@ -71,6 +73,9 @@ const indexPage: FunctionComponent<IGeneral> = ({
       />
       <Route path="/auth/reset" component={ResetPassword} />
       <Route path="/user/classroom" component={ClassRoom} />
+      <Route path="/error/500" component={ServerError} />
+      <Route path="/error/403" component={Forbidden} />
+
       <Route render={() => <NotFound/>} />
     </Switch>
   );
