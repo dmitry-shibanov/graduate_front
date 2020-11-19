@@ -11,8 +11,9 @@ import openSocket from "socket.io-client";
 import './ListBlogs.css';
 
 import axios from "../../../../axios";
+import image from '../../../../components/Image/Image';
 
-class Feed extends Component<any> {
+class Feed extends Component<any, any> {
   state = {
     isEditing: false,
     posts: [],
@@ -22,6 +23,7 @@ class Feed extends Component<any> {
     postPage: 1,
     postsLoading: false,
     editLoading: false,
+    postId: null,
     error: Error,
   };
 
@@ -109,6 +111,8 @@ class Feed extends Component<any> {
       totalPosts: response.data.totalItems,
       postsLoading: false
     });
+
+    console.log(this.state);
   };
 
   newPostHandler = () => {
@@ -118,17 +122,18 @@ class Feed extends Component<any> {
 
   startEditPostHandler = (postId: any) => {
     this.setState((prevState:any) => {
-      const loadedPost = { ...prevState.posts.find((p:any) => p._id === postId) };
+      const loadedPost = { ...prevState.posts.find((p:any) => p.id === postId) };
 
       return {
         isEditing: true,
+        postId: postId,
         editPost: loadedPost
       };
     });
   };
 
   cancelEditHandler = () => {
-    this.setState({ isEditing: false, editPost: null });
+    this.setState({ isEditing: false, editPost: null, postId: null });
   };
 
   finishEditHandler = (postData:any) => {
@@ -139,19 +144,22 @@ class Feed extends Component<any> {
     formData.append('title', postData.title);
     formData.append('content', postData.content);
     formData.append('image', postData.image);
+    // formData.append('userId', localStorage.getItem('userId') != null ?localStorage.getItem('userId')!:"")
+    console.log(formData);
     let url = 'http://localhost:3100/blogs';
     let method = 'POST';
     if (this.state.editPost) {
-      url = 'http://localhost:3100/blogs' //+ this.state.editPost._id;
+      let obj = this.state.editPost as unknown as {id: number | string};
+      url = 'http://localhost:3100/blogs/' + obj.id;
       method = 'PUT';
     }
 
     fetch(url, {
       method: method,
       body: formData,
-      // headers: {
-      //   Authorization: 'Bearer ' + this.props.token
-      // }
+      headers: {
+        Authorization: 'Bearer ' + this.props.token
+      },
     })
       .then(res => {
         if (res.status !== 200 && res.status !== 201) {
@@ -162,24 +170,25 @@ class Feed extends Component<any> {
       .then(resData => {
         console.log(resData);
         const post = {
-          _id: resData.post._id,
+          id: resData.post.id,
           title: resData.post.title,
           content: resData.post.content,
           creator: resData.post.creator,
+          image: resData.post.image,
           createdAt: resData.post.createdAt
         };
         this.setState((prevState:any) => {
-          // let updatedPosts = [...prevState.posts];
-          // if (prevState.editPost) {
-          //   const postIndex = prevState.posts.findIndex(
-          //     (p:any) => p._id === prevState.editPost._id
-          //   );
-          //   updatedPosts[postIndex] = post;
-          // } else if (prevState.posts.length < 2) {
-          //   updatedPosts = prevState.posts.concat(post);
-          // }
+          let updatedPosts = [...prevState.posts];
+          if (prevState.editPost) {
+            const postIndex = prevState.posts.findIndex(
+              (p:any) => p._id === prevState.editPost._id
+            );
+            updatedPosts[postIndex] = post;
+          } else if (prevState.posts.length < 2) {
+            updatedPosts = prevState.posts.concat(post);
+          }
           return {
-            // posts: updatedPosts,
+            posts: updatedPosts,
             isEditing: false,
             editPost: null,
             editLoading: false
@@ -203,7 +212,7 @@ class Feed extends Component<any> {
 
   deletePostHandler = (postId:any) => {
     this.setState({ postsLoading: true });
-    fetch('http://localhost:8080/blogs/' + postId, {
+    fetch('http://localhost:3100/blogs/' + postId, {
       method: 'DELETE',
       headers: {
         Authorization: 'Bearer ' + this.props.token
@@ -281,15 +290,17 @@ class Feed extends Component<any> {
     >
       {this.state.posts.map((post:any) => (
         <Post
-          key={post._id}
-          id={post._id}
-          author={post.creator.name}
+          key={post.id}
+          id={post.id}
+          creator={post.creator}
+          userId={this.props.userId}
+          // author={post.creator.name}
           date={new Date(post.createdAt).toLocaleDateString('en-US')}
           title={post.title}
-          image={post.imageUrl}
+          image={post.image}
           content={post.content}
-          onStartEdit={this.startEditPostHandler.bind(this, post._id)}
-          onDelete={this.deletePostHandler.bind(this, post._id)}
+          onStartEdit={this.startEditPostHandler.bind(this, post.id)}
+          onDelete={this.deletePostHandler.bind(this, post.id)}
         />
       ))}
     </Paginator>

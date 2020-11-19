@@ -2,7 +2,7 @@ import React, { FC, Fragment, Component } from "react";
 import ReactDOM from "react-dom";
 
 import Button from "../Button/Button";
-import "./Modal.css";
+import styles from "./Modal.module.css";
 
 // class Modal extends Component<any> {
 //   private container: HTMLDivElement;
@@ -60,12 +60,12 @@ const modal: FC<any> = (props: any) =>{
   console.log(element);
   return ReactDOM.createPortal(
     <Fragment>
-    <div className="modal">
-      <header className="modal__header">
+    <div className={styles.modal}>
+      <header className={styles.modal__header}>
         <h1>{props.title}</h1>
       </header>
-      <div className="modal__content">{props.children}</div>
-      <div className="modal__actions">
+      <div className={styles.modal__content}>{props.children}</div>
+      <div className={styles.modal__actions}>
         <Button design="danger" mode="flat" onClick={props.onCancelModal}>
           Cancel
         </Button>

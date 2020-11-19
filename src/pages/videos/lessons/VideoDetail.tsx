@@ -1,22 +1,24 @@
 import React, { Component, Fragment } from "react";
+import IHistory from "../../../models/props/IHistory";
 
-class VideoDetail extends Component<{video: string}> {
+class VideoDetail extends Component<any> {
+
+  constructor(props:any){
+    super(props);
+    console.log(this.props);
+
+  }
   render() {
-    const video = this.props.video;
-    // const videoId = video.id.videoId;
-    const url = `http://localhost:3100/assets/video/http-03-sending-a-post-request.mp4`;
+    let url = `http://localhost:3100/video/${this.props.history.location.pathname.replace('/videos/')}`;
     return (
       <Fragment>
-        <div className="video-detail col-md-8">
+        <div className="video-detail col-md-7">
             <div className="embed-responsive embed-responsive-16by9">
             <video id="videoPlayer" controls>
-          <source src="http://localhost:3100/video" type="video/mp4" />
+          <source src={url} type="video/mp4" />
         </video>
             </div>
-            <div className="details">
-                {/* <div>{video.snippet.title}</div>
-                <div>{video.snippet.description}</div> */}
-            </div>
+
         </div>
       </Fragment>
     );
@@ -37,3 +39,11 @@ export default VideoDetail;
     <div>{video.snippet.description}</div>
 </div> 
 </div> */}
+
+
+
+
+{/* <div className="details">
+<div>{video.snippet.title}</div>
+<div>{video.snippet.description}</div>
+</div>  */}

@@ -2,6 +2,8 @@ import React from 'react';
 
 import Button from '../../Button/Button';
 import './SinglePostCard.css';
+import Image from "../../Image/Image";
+import { Link } from 'react-router-dom';
 
 const post = (props:any) => (
   <article className="post">
@@ -13,18 +15,18 @@ const post = (props:any) => (
     </header>
     {/* <div className="post__image">
       <Image imageUrl={props.image} contain />
-    </div>
-    <div className="post__content">{props.content}</div> */}
+    </div> */}
+    <div className="post__content">{props.content}</div>
     <div className="post__actions">
       <Button mode="flat" link={props.id}>
-        View
+        <Link to={`/blogs/${props.id}`}>View</Link>
       </Button>
-      <Button mode="flat" onClick={props.onStartEdit}>
+      {props.userId && props.userId == props.creator && (<Button mode="flat" onClick={props.onStartEdit}>
         Edit
-      </Button>
-      <Button mode="flat" design="danger" onClick={props.onDelete}>
+      </Button>)}
+      {props.userId == props.creator && (<Button mode="flat" design="danger" onClick={props.onDelete}>
         Delete
-      </Button>
+      </Button>)}
     </div>
   </article>
 );

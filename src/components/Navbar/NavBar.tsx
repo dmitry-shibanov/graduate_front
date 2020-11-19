@@ -23,6 +23,9 @@ export default (props:IAuth) => {
                                 <li className="nav-item">
                                     <NavLink className="nav-link" to='/courses'>Курсы</NavLink>
                                 </li>
+                                <li className="nav-item">
+                                    <a className="nav-link" href='http://localhost:3000/'><div>Streams</div></a>
+                                </li>
                                 <li>
                                     <NavLink className="nav-link" to='/blogs'>Блоги</NavLink>
                                 </li>

@@ -1,13 +1,13 @@
 import React, { FC } from 'react';
 import VideoListItem from './VideoListItem';
 
-const VideoList: FC<{videos: {etag:string}[], onVideoSelect:any}> = (props) => {
-    const videoItems = props.videos.map((video) => {
+const VideoList: FC<{videos: any, onVideoSelect:any}> = (props) => {
+    const videoItems = props.videos.map((video: any) => {
         return (
             <VideoListItem 
                 onUserSelected={props.onVideoSelect}           
-                key={video.etag} 
-                video={"video"} />
+                key={video.id} 
+                video={video} />
         );
     });
 

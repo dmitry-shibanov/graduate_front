@@ -11,7 +11,7 @@ function itemCard(props: ICardItem) {
       </header>
       <div className="card__image">
         <img
-          src="https://cdn.pixabay.com/photo/2019/07/28/18/43/mountains-4369251_960_720.jpg"
+          src={props.image}
           alt={props.title}
         ></img>
         {/* <img src="<%= product.imageUrl %>" alt="<%= product.title %>"> */}
@@ -21,8 +21,8 @@ function itemCard(props: ICardItem) {
         <p className="product__description">{props.description}</p>
       </div>
       <div className="card__actions">
-        <Link to={`/blogs/${props.id}`} className="btn btn-outline-success">
-          Детали
+        <Link to={`/courses/${props.id}`} className="btn btn-outline-success">
+          Курс
         </Link>
       </div>
     </article>

@@ -38,20 +38,13 @@ class Index extends Component {
                             <img src={Idea} style={{"height":this.state.height, "width":this.state.width}} ref={this.setupSizes} />
                 </div>
                         <div className="col my-auto mx-2">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique nulla nam dolorum alias vero totam consectetur eligendi, fugiat quasi facilis labore error eos officiis dolorem dolore qui sapiente sunt eaque!
-                            Illo blanditiis molestiae aut quaerat dicta eligendi, deleniti minima error nesciunt incidunt ex. Quia, necessitatibus? Fugit commodi accusantium accusamus odit error deserunt eum beatae labore enim? Consequatur fugit quos incidunt?
-                            Dolorum veniam delectus eligendi mollitia accusantium dolor animi voluptatum quae minima illum, nihil consequuntur est facilis iure, dignissimos doloremque molestias soluta sed vitae enim. Accusantium libero cupiditate doloribus porro eos?
-                            Accusamus quas doloribus ratione excepturi minus cupiditate, obcaecati, ducimus distinctio iste, a rem. Maiores vitae nulla harum voluptatem, blanditiis quas soluta enim provident facilis obcaecati minima id optio, pariatur quibusdam.
-                            Architecto rerum illum possimus dolorem reprehenderit enim aspernatur ducimus suscipit officiis. Exercitationem, enim illo fugit dolor expedita quaerat optio impedit deserunt. Ipsa assumenda facilis laudantium reiciendis, iure optio provident minima.
+                        Душа, помещенная в тело, подобна неограненному алмазу, и она должна быть отполирована, иначе она никогда не сможет засиять; и очевидно, что если разум отличает нас от животных, то образованность делает это отличие еще большим и помогает нам уйти от животных дальше, чем другие. 
+                        <p>Даниэль Дефо</p>
                 </div>
                     </div>
                     <div className="row">
                         <div className="col my-auto mx-2">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique nulla nam dolorum alias vero totam consectetur eligendi, fugiat quasi facilis labore error eos officiis dolorem dolore qui sapiente sunt eaque!
-                            Illo blanditiis molestiae aut quaerat dicta eligendi, deleniti minima error nesciunt incidunt ex. Quia, necessitatibus? Fugit commodi accusantium accusamus odit error deserunt eum beatae labore enim? Consequatur fugit quos incidunt?
-                            Dolorum veniam delectus eligendi mollitia accusantium dolor animi voluptatum quae minima illum, nihil consequuntur est facilis iure, dignissimos doloremque molestias soluta sed vitae enim. Accusantium libero cupiditate doloribus porro eos?
-                            Accusamus quas doloribus ratione excepturi minus cupiditate, obcaecati, ducimus distinctio iste, a rem. Maiores vitae nulla harum voluptatem, blanditiis quas soluta enim provident facilis obcaecati minima id optio, pariatur quibusdam.
-                            Architecto rerum illum possimus dolorem reprehenderit enim aspernatur ducimus suscipit officiis. Exercitationem, enim illo fugit dolor expedita quaerat optio impedit deserunt. Ipsa assumenda facilis laudantium reiciendis, iure optio provident minima.
+                        Если у вас есть цель, то вы знаете смысл жизни, а значит, вы ей удовлетворены. Поверьте, именно цель помогает нам в трудные минуты, делает нас крепче и воодушевляет на долгую жизнь
                 </div>
                         <div className="col">
                         <img src={Geometry} style={{"height":this.state.height, "width":this.state.width}} ref={this.setupSizes} />
@@ -62,11 +55,7 @@ class Index extends Component {
                         <img src={Meditation} style={{"height":this.state.height, "width":this.state.width}} ref={this.setupSizes} />
                 </div>
                         <div className="col my-auto mx-2">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique nulla nam dolorum alias vero totam consectetur eligendi, fugiat quasi facilis labore error eos officiis dolorem dolore qui sapiente sunt eaque!
-                            Illo blanditiis molestiae aut quaerat dicta eligendi, deleniti minima error nesciunt incidunt ex. Quia, necessitatibus? Fugit commodi accusantium accusamus odit error deserunt eum beatae labore enim? Consequatur fugit quos incidunt?
-                            Dolorum veniam delectus eligendi mollitia accusantium dolor animi voluptatum quae minima illum, nihil consequuntur est facilis iure, dignissimos doloremque molestias soluta sed vitae enim. Accusantium libero cupiditate doloribus porro eos?
-                            Accusamus quas doloribus ratione excepturi minus cupiditate, obcaecati, ducimus distinctio iste, a rem. Maiores vitae nulla harum voluptatem, blanditiis quas soluta enim provident facilis obcaecati minima id optio, pariatur quibusdam.
-                            Architecto rerum illum possimus dolorem reprehenderit enim aspernatur ducimus suscipit officiis. Exercitationem, enim illo fugit dolor expedita quaerat optio impedit deserunt. Ipsa assumenda facilis laudantium reiciendis, iure optio provident minima.
+                        Помните, вся жизнь – это испытание, это тест. Чтобы достичь большого успеха, Вы должны пройти «тест на настойчивость». Но этот тест часто застаёт Вас врасплох и оказывается чем-то вроде инспекторной проверки в школе, которую ничто не предвещает. Сложная ситуация может возникнуть в любое время, причём обычно совершенно негаданно и там, где на неё совсем не рассчитываешь. Вы проходите тест на настойчивость всякий раз, когда сталкиваетесь с непредвиденной трудностью, разочарованием, задержкой, неудачей или житейским кризисом. Именно в такой ситуации Вы демонстрируете самому себе и всем, кто Вас окружает, из какого материала Вы в действительности изготовлены
                 </div>
                     </div>
                 </Fragment>

@@ -7,6 +7,8 @@ interface IGeneral extends RouteComponentProps<any> {
     logout: any;
     isAuth: boolean;
     authLoading: boolean;
+    userId: number | string | null;
+    token: string | null;
 }
 
 export default IGeneral;

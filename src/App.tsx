@@ -44,7 +44,7 @@ componentDidMount() {
       <Fragment>
 
       <NavBar isAuth = { this.state.isAuth } logout = { this.logoutHandler } />
-        <IndexPage history={this.props.history} match={this.props.match} location={this.props.location} loginHandler={this.loginHandler} logout={this.logoutHandler} signupHandler={this.signupHandler} authLoading= {this.state.authLoading} isAuth = {this.state.isAuth} />
+        <IndexPage history={this.props.history} match={this.props.match} location={this.props.location} loginHandler={this.loginHandler} logout={this.logoutHandler} signupHandler={this.signupHandler} authLoading= {this.state.authLoading} isAuth = {this.state.isAuth} userId = {this.state.userId} token = {this.state.token}/>
 
         </Fragment>
     );

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import 'bootstrap/dist/css/bootstrap.css';
+// import 'bootstrap/dist/css/bootstrap.css';
 import './Basket.css';
 import { RSA_NO_PADDING } from 'constants';
 
